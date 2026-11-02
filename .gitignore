@@ -1,0 +1,26 @@
+# --- build artefacts ---
+node_modules/
+dist/
+dist-server/
+
+# --- runtime data: contains live patient records, sessions and audit logs ---
+data/
+*.db
+*.db-shm
+*.db-wal
+*.db.backup*
+ backups/
+backup*/
+
+# --- secrets: never commit credentials or keys ---
+.env
+.env.*
+*.env
+!.spaceship.env.example
+*.pem
+*.key
+ssh-keys/
+
+# --- local tests artefacts ---
+/tmp/
+*.log

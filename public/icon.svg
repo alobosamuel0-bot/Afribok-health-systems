@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Afribok">
+  <defs>
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6cf91" />
+      <stop offset="1" stop-color="#dc7a42" />
+    </linearGradient>
+    <linearGradient id="land" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f6a54" />
+      <stop offset="1" stop-color="#143f33" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="#140f0c" />
+  <circle cx="32" cy="27" r="13" fill="url(#sun)" />
+  <path d="M6 46c7-7 15-7 23 0 8 7 17 7 29 0v12H6Z" fill="url(#land)" />
+  <path d="M6 46c7-7 15-7 23 0 8 7 17 7 29 0" fill="none" stroke="#efc183" stroke-opacity=".65" stroke-width="1.5" />
+  <path d="M12 20h5M47 14h4M17 30h3" stroke="#f5dfbd" stroke-opacity=".5" stroke-width="1.5" stroke-linecap="round" />
+</svg>
