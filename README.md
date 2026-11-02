@@ -33,49 +33,6 @@ After sign-in, the workspace opens with no records; register the first walk-in t
 
 ### Working now
 
-- Clinic email and password sign-in, scrypt password hashing, 12-hour server sessions, login throttling, logout, session revocation.
-- Self-service account creation that saves the account to the server database, signs the person in, and works from any other device afterwards; new accounts cannot self-assign administrator access.
-- Mandatory eight-card hospital onboarding saved in the server database, gating the dashboard until an administrator completes it and editable later in **Hospital setup**.
-- Department configuration with name, description and head; staff are assigned to a department in Team & roles, and a department that still has active staff cannot be deleted.
-- Role-based access: registration, nurse, clinician, administrator, auditor — enforced on the server for every route.
-- Patient search, registration, returning-patient check-in and visit worklists.
-- Duplicate candidate scoring shown to staff; records are **never merged automatically**.
-- Device-first writes to IndexedDB (patients, encounters, outbox) with a background sync queue.
-- Idempotent sync: every operation has a client UUID; a replayed operation is acknowledged as `duplicate` and is not written twice.
-- Encounter version checks return a `conflict` with the server copy instead of overwriting a newer edit.
-- Batch AI triage for 3–100 walk-ins with live per-patient status and immediate level 1–2 escalation.
-- Department-scoped clinical data; nurses and clinicians only see their own department, while administrators, auditors and registration retain the operational view.
-- Administrator-created individual staff accounts with staff number, role and department.
-- Approved clinical notes; only approved notes are used by the assistant or written to an external EHR.
-- FHIR R4 connector: tested endpoint, patient read, approved-note write-back, pause/resume/disconnect, sync log and duplicate prevention.
-- Permission-aware AI Assistant with patient-level context limited to records the signed-in user can open.
-- Predictive cards with historical-data basis, data quality, confidence, period and last-updated time.
-- Measured performance: arrival-to-registration, registration-to-triage, triage-to-doctor, total wait and documentation time. Missing data is reported as unavailable.
-- Server-side audit trail for sign-in, registration, visit changes, sync outcomes, team changes, triage, notes and capacity edits.
-- Paper-record OCR with per-field confidence and warnings, prefilling registration.
-- AI triage saved onto the visit and shown beside it in the worklist, with the clinician still setting the priority.
-- AI scribe from a browser recording or a pasted transcript, keeping patient-reported and clinician-observed statements apart.
-- Outflow forecast: hourly queue, seven-day outlook, staffing, bed and equipment utilisation, referral signal and the assumptions it used.
-- Capacity settings (consultation rooms, beds, clinicians, equipment) that the forecast reads.
-- Operations Assistant with per-user private conversations; answers aggregate queue, triage workload, daily activity and forecast questions. Patient-level records and user-entered question text are never sent to the AI model.
-- Administrator-only historical CSV import for aggregate counts (date, arrivals, optional department/triaged/completed/waiting); patient-identifying or clinical columns are rejected. Accepted aggregates can inform the forecast and its assumptions disclose the lack of hourly detail.
-- Administrator-only EHR connector configuration with bearer credentials encrypted at rest, audited endpoint checks and explicit status. FHIR metadata/REST reachability checks do not read patients or claim a working data exchange.
-- Server-authoritative SQLite store (WAL), device-local mirror, Zod input validation, security headers and origin checks.
-- HTTPS with a reverse proxy, `Secure` and `HttpOnly` session cookies.
-- Cinematic procedural landing page and a live 3D twin-queue simulation, with a WebGL fallback.
-- Installable PWA shell and service worker.
-
-### Deliberately not built
-
-Listed openly on the in-app **Performance** page rather than as disabled buttons:
-
-- External EHR patient reads, vendor-specific resource mapping, synchronisation, or FHIR write-back (the current EHR screen only configures and tests metadata/reachability).
-- Patient-level Assistant lookup; the current Assistant is aggregate-only.
-- Prescriptions, medication orders, results or order entry.
-- Automatic referrals — the forecast flags the day, staff decide.
-- Locally validated triage thresholds, protocol automation and clinical validation.
-- Read-access auditing, production backup, retention policy and key custody.
-
 ## Architecture
 
 ```
