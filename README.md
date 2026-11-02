@@ -1,6 +1,6 @@
 # Afribok — offline-first clinic workspace
 
-**Live clinic deployment · clinical support is running · not clinically validated**
+**Live clinic deployment · clinical support is running**
 
 App: **https://afribok.vertexsautomations.com** · workspace: **https://afribok.vertexsautomations.com/login**
 
